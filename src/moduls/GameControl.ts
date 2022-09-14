@@ -47,6 +47,9 @@ class GameControl {
         break;
     }
 
+    this.eatFood(X, Y);
+
+    // catch error
     try {
       this.snake.X = X;
       this.snake.Y = Y;
@@ -58,6 +61,14 @@ class GameControl {
     // The init() will only be executed once with empty direction, so setTimeout can rerun run fn every 300ms, because it is in run fn.
     this.isAlive &&
       setTimeout(this.run.bind(this), 300 - (this.panel.level - 1) * 30);
+  };
+
+  eatFood = (X: number, Y: number) => {
+    if (X === this.food.X && Y === this.food.Y) {
+      this.food.foodChange();
+      this.panel.addScore();
+      this.snake.addBody();
+    }
   };
 }
 
