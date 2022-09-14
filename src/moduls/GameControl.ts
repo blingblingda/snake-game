@@ -51,8 +51,12 @@ class GameControl {
 
     // catch error
     try {
-      this.snake.X = X;
-      this.snake.Y = Y;
+      if (this.snake.X != X) {
+        this.snake.X = X;
+      }
+      if (this.snake.Y != Y) {
+        this.snake.Y = Y;
+      }
     } catch (error) {
       alert((error as Error).message + " Game Over.");
       this.isAlive = false;
