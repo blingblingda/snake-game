@@ -19,8 +19,22 @@ class Snake {
 
   // set head new coordinate
   set X(value: number) {
+    // snake is not allowed to go back
+    if (this.X === value) {
+      return;
+    }
+    if (this.body[1] && (this.body[1] as HTMLElement).offsetLeft === value) {
+      if (value > this.X) {
+        value = this.X - 10;
+      } else {
+        value = this.X + 10;
+      }
+    }
+
+    // snake body moving with head
     this.moveBody();
 
+    // snake hit the wall
     if (value < 0 || value > 290) {
       throw new Error("Hit the wall!");
     } else {
@@ -29,6 +43,17 @@ class Snake {
   }
 
   set Y(value: number) {
+    if (this.Y === value) {
+      return;
+    }
+    if (this.body[1] && (this.body[1] as HTMLElement).offsetTop === value) {
+      if (value > this.Y) {
+        value = this.Y - 10;
+      } else {
+        value = this.Y + 10;
+      }
+    }
+
     this.moveBody();
 
     if (value < 0 || value > 290) {
