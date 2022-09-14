@@ -40,6 +40,9 @@ class Snake {
     } else {
       this.head.style.left = value + "px";
     }
+
+    // snake's head should not hit it's tail
+    this.checkHead();
   }
 
   set Y(value: number) {
@@ -61,6 +64,8 @@ class Snake {
     } else {
       this.head.style.top = value + "px";
     }
+
+    this.checkHead();
   }
 
   addBody = () => {
@@ -74,6 +79,15 @@ class Snake {
       let Y = (this.body[i - 1] as HTMLElement).offsetTop;
       (this.body[i] as HTMLElement).style.left = X + "px";
       (this.body[i] as HTMLElement).style.top = Y + "px";
+    }
+  };
+
+  checkHead = () => {
+    for (let i = 1; i < this.body.length; i++) {
+      let bd = this.body[i] as HTMLElement;
+      if (bd.offsetLeft === this.X && bd.offsetTop === this.Y) {
+        throw new Error("Hit itself!");
+      }
     }
   };
 }
