@@ -9,6 +9,7 @@ class Snake {
     this.body = this.element.getElementsByTagName("div");
   }
 
+  // get head coordinate
   get X() {
     return this.head.offsetLeft;
   }
@@ -16,10 +17,17 @@ class Snake {
     return this.head.offsetTop;
   }
 
-  set X(value) {}
-  set Y(value) {}
+  // set head new coordinate
+  set X(value: number) {
+    this.head.style.left = value + "px";
+  }
+  set Y(value: number) {
+    this.head.style.top = value + "px";
+  }
 
   addBody = () => {
     this.element.insertAdjacentHTML("beforeend", "<div></div>");
   };
 }
+
+export default Snake;

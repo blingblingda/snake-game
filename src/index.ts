@@ -1,3 +1,4 @@
 import "./style/index.less";
+import GameControl from "./moduls/GameControl";
 
-console.log(123);
+const GC = new GameControl();
