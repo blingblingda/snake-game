@@ -9,9 +9,9 @@ body {
 #main {
   width: 360px;
   height: 420px;
-  background-color: #8fc1b5;
+  background-color: #f2d335;
   border-radius: 20px;
-  border: 10px solid #265c4b;
+  border: 10px solid #402309;
   margin: 150px auto auto 200px;
   display: flex;
   flex-direction: column;
@@ -21,15 +21,15 @@ body {
 #stage {
   width: 304px;
   height: 304px;
-  border: 2px solid #265c4b;
+  border: 2px solid #402309;
   position: relative;
 }
 #stage #snake > div {
   position: absolute;
   width: 10px;
   height: 10px;
-  background-color: #265c4b;
-  border: 1px solid #8fc1b5;
+  background-color: #402309;
+  border: 1px solid #f2d335;
 }
 #stage #food {
   position: absolute;
@@ -45,11 +45,11 @@ body {
 #stage #food > div {
   width: 4.5px;
   height: 4.5px;
-  background-color: #265c4b;
+  background-color: #402309;
   rotate: 45deg;
 }
 #panel {
-  color: #265c4b;
+  color: #402309;
   width: 300px;
   display: flex;
   justify-content: space-between;

@@ -19,10 +19,19 @@ class Snake {
 
   // set head new coordinate
   set X(value: number) {
-    this.head.style.left = value + "px";
+    if (value < 0 || value > 290) {
+      throw new Error("Hit the wall!");
+    } else {
+      this.head.style.left = value + "px";
+    }
   }
+
   set Y(value: number) {
-    this.head.style.top = value + "px";
+    if (value < 0 || value > 290) {
+      throw new Error("Hit the wall!");
+    } else {
+      this.head.style.top = value + "px";
+    }
   }
 
   addBody = () => {

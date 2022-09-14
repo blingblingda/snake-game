@@ -47,8 +47,13 @@ class GameControl {
         break;
     }
 
-    this.snake.X = X;
-    this.snake.Y = Y;
+    try {
+      this.snake.X = X;
+      this.snake.Y = Y;
+    } catch (error) {
+      alert((error as Error).message + " Game Over.");
+      this.isAlive = false;
+    }
 
     // The init() will only be executed once with empty direction, so setTimeout can rerun run fn every 300ms, because it is in run fn.
     this.isAlive &&
